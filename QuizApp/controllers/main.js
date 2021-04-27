@@ -18,7 +18,7 @@ let createHTML = () => {
 
     questionList.map((ques, index) => {
         //destructuring
-        let { id, questionType, content, answers, renderHTML } = ques
+        let { id, questionType, content, answers } = ques
 
         //tạo button next hoặc submit (nếu là câu hỏi cuối cùng => submit)
         if (index < questionList.length - 1) {
@@ -42,7 +42,7 @@ let createHTML = () => {
                         <p>${content}</p>
                     </div>
                     <div class="quiz__body row">
-                        ${renderHTML()}
+                        ${ques.renderHTML()}
                     
                     </div>
                     <div class="quiz__footer">
