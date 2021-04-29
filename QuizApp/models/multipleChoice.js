@@ -30,5 +30,35 @@ export class MultipleChoice extends Questions {
 
     checkExact() {
         console.log("kiểm tra đáp án MultipleChoice")
+        //lấy câu trả lời từ user
+        let listAns = document.querySelectorAll(`input[name="multi-${[this.id]}"]`)
+        let valRadio="";
+       
+        //kiểm tra radio nào được chọn
+        for (let ans of listAns){
+            //ans.checked == true
+            if(ans.checked){
+                //nếu radio đc chọn thì lấy giá trị của radio đó
+                valRadio = ans.value;
+            }
+        }
+
+        //lấy đáp án từ data
+        let valExact ="";
+        for (let ansData of this.answers){
+            //ansData.exact == true
+            if (ansData.exact){
+                valExact= ansData.content;
+            }
+        }
+
+        //so sánh đáp án
+        if (valRadio == valExact){
+            //đúng
+            return true;
+        }else{
+            //sai
+            return false;
+        }
     }
 }

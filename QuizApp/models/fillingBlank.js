@@ -20,6 +20,22 @@ export class FillingBlank extends Questions {
     };
 
     checkExact() {
-        console.log("kiểm tra đáp án UI FillingBlank")
+        console.log("Kiểm tra đáp án FillInBlank");
+        // Lấy câu trả lời của user 
+        let userAns = document.getElementById(`fill${this.id}-fillAnswer${this.answers[0].id}`).value;
+        console.log(userAns);
+
+        // Lấy đáp án từ data 
+        let valueAns = this.answers[0].content;
+        console.log(valueAns);
+
+        // So sánh đáp án 
+        if (userAns.toLowerCase() == valueAns.toLowerCase()) {
+            //đúng
+            return true;
+        } else {
+            //sai
+            return false;
+        }
     }
 }
